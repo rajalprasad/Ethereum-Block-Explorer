@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+import './block-data.styles.scss';
 
 const ethers = require('ethers');
 const api = process.env.API_TOKEN;
@@ -18,13 +21,20 @@ export function BlockData() {
 
             setBlockData(ethBlockData);
         }
+
         loadBlockData();
     }, []);
     
     return (
         <>
-            <h1>{blockData.number}</h1>
-            <p>{blockData.hash}</p>
+            <h1 className='blockDataPageBlockNum'>Block: {blockData.number}</h1>
+            <div className='blockInfo'>
+                <p>hash: {blockData.hash}</p>
+                <p>timestamp: {blockData.timestamp}</p>
+                <p>nonce: {blockData.nonce}</p>
+                <p>parentHash: {blockData.parentHash}</p>
+            </div>
+            <Link className="homePageLink" to="/">Home Page</Link>
         </>
     )
 }

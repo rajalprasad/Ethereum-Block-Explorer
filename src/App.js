@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { HomePage } from "./pages/HomePage";
-import { BlockData } from "./pages/BlockData";
+import { BlockDataPage } from "./pages/BlockDataPage";
 
 export function App() {
 
@@ -9,7 +9,7 @@ export function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="blockdata" element={<BlockData/>} />
+                <Route path="blockdata" element={<BlockDataPage/>} />
             </Routes>
         </BrowserRouter>
     )

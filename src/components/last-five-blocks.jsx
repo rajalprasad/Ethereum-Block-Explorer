@@ -1,6 +1,8 @@
 import React, {useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import './last-five-blocks.styles.scss';
+
 const ethers = require('ethers');
 const api = process.env.API_TOKEN;
 const provider = new ethers.providers.AlchemyProvider("homestead", api);
@@ -24,9 +26,10 @@ export function LastFiveBlocks() {
 
     return (
         <>
-            <h1>
+            <h1 className='homePageTitle'>
                 Ethereum Blockchain Explorer
             </h1>
+            <div className='homePageBlockNum'>
                 {block.map((blockNumber) => (
                     <div key={blockNumber}>
                         <Link to="/blockdata" state={{from: blockNumber}}>
@@ -34,6 +37,7 @@ export function LastFiveBlocks() {
                         </Link>
                     </div>
                 ))}
+            </div>
         </>
     );
 }
